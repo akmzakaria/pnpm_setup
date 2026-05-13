@@ -6,7 +6,7 @@ type User = {
 
 const users: User[] = []
 
-const register = (payload: User) => {
+const register = async (payload: User) => {
   const existingUser = users.find((u) => u.email === payload.email)
 
   if (existingUser) {
@@ -18,7 +18,7 @@ const register = (payload: User) => {
   return payload
 }
 
-const login = (payload: { email: string; password: string }) => {
+const login = async (payload: { email: string; password: string }) => {
   const user = users.find((u) => u.email === payload.email && u.password === payload.password)
 
   if (!user) {

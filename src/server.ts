@@ -33,7 +33,19 @@ process.on('unhandledRejection', (error) => {
   }
 })
 
-process.on('SIGTERM', (error) => {
+process.on('SIGTERM', () => {
+  console.log('Server is shutting down!')
+
+  if (server) {
+    server.close(() => {
+      process.exit(0)
+    })
+  } else {
+    process.exit(0)
+  }
+})
+
+process.on('SIGINT', () => {
   console.log('Server is shutting down!')
 
   if (server) {

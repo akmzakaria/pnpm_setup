@@ -1,10 +1,11 @@
 import express, { Application, Request, Response, Router } from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
+import { AuthRoutes } from './app/modules/auth/auth.route.js'
 
 const app: Application = express()
 
-const router = Router()
+// const router = Router()
 
 // app.listen(5000)
 
@@ -20,6 +21,6 @@ app.get('/', (req: Request, res: Response) => {
   })
 })
 
-app.use('/api/v1', router)
+app.use('/api/v1', AuthRoutes)
 
 export default app
