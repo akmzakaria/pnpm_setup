@@ -1,9 +1,9 @@
-import { z } from 'zod'
+import { ZodObject } from 'zod'
 
-export const registerSchema = z.object({
-  body: z.object({
-    name: z.string(),
-    email: z.email(),
-    password: z.string().min(6),
-  }),
-})
+export const validateSchema = (schema: ZodObject) => (req: any, res: any, next: any) => {
+  schema.parse({
+    body: req.body,
+  })
+
+  next()
+}

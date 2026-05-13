@@ -1,8 +1,5 @@
-type User = {
-  name: string
-  email: string
-  password: string
-}
+import { success } from 'zod'
+import { User, LoginPayload } from '../../types/index.js'
 
 const users: User[] = []
 
@@ -18,11 +15,14 @@ const register = async (payload: User) => {
   return payload
 }
 
-const login = async (payload: { email: string; password: string }) => {
+const login = async (payload: LoginPayload) => {
   const user = users.find((u) => u.email === payload.email && u.password === payload.password)
 
   if (!user) {
-    throw new Error('Invalid credentials')
+    return {
+      success: false,
+      message: 'Invalid Credentials!',
+    }
   }
 
   return user
