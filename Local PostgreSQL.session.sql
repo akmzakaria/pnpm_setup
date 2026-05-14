@@ -11,7 +11,7 @@ CREATE TABLE employees(
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- 3. FIVE EMPLOYEES INSERTED INTO THE TABLE
+-- 3. EMPLOYEES INSERTED INTO THE TABLE
 INSERT INTO employees (name, email,salary,department)
 VALUES 
 ('akm1','akm1@gmail.com', 10000,'NAME'),
@@ -114,7 +114,6 @@ VALUES
 (700, 1),
 (900, 2);
 
-SELECT * FROM orders
 -- 20. USED INNER JOIN
 SELECT users.name, orders.amount
 FROM users
