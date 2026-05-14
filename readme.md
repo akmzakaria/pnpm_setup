@@ -2,6 +2,223 @@
 
 [Click to see](https://drive.google.com/file/d/180tDV0piPBqmP-eRLWikWgHjO9QSB9iU/view?usp=sharing)
 
+# Question-Answers on SQL
+
+# 1. Difference Between DELETE, TRUNCATE, DROP
+
+| Command  | Description                        |
+| -------- | ---------------------------------- |
+| DELETE   | Removes selected rows from a table |
+| TRUNCATE | Removes all rows from a table      |
+| DROP     | Deletes the entire table           |
+
+## DELETE
+
+```sql
+DELETE FROM employees
+WHERE id = 1;
+```
+
+## TRUNCATE
+
+```sql
+TRUNCATE TABLE employees;
+```
+
+## DROP
+
+```sql
+DROP TABLE employees;
+```
+
+---
+
+# 2. What is a PRIMARY KEY?
+
+A PRIMARY KEY:
+
+- uniquely identifies each row
+- cannot contain NULL values
+- cannot contain duplicate values
+
+Example:
+
+```sql
+id SERIAL PRIMARY KEY
+```
+
+---
+
+# 3. Difference Between PRIMARY KEY and UNIQUE KEY
+
+| PRIMARY KEY              | UNIQUE KEY            |
+| ------------------------ | --------------------- |
+| only one per table       | multiple allowed      |
+| NULL not allowed         | NULL allowed          |
+| uniquely identifies rows | ensures unique values |
+
+Example:
+
+```sql
+id INT PRIMARY KEY,
+email VARCHAR(50) UNIQUE
+```
+
+---
+
+# 4. What is a FOREIGN KEY?
+
+A FOREIGN KEY connects two tables.
+
+Example:
+
+```sql
+FOREIGN KEY (user_id) REFERENCES users(id)
+```
+
+It connects:
+
+- `orders.user_id`
+  with
+- `users.id`
+
+---
+
+# 5. What is JOIN in SQL?
+
+JOIN combines data from multiple tables.
+
+## INNER JOIN
+
+Shows only matching rows.
+
+```sql
+SELECT users.name, orders.amount
+FROM users
+INNER JOIN orders
+ON users.id = orders.user_id;
+```
+
+## LEFT JOIN
+
+Shows all rows from the left table.
+
+```sql
+SELECT users.name, orders.amount
+FROM users
+LEFT JOIN orders
+ON users.id = orders.user_id;
+```
+
+---
+
+# 6. What is Normalization?
+
+Normalization organizes data to reduce duplication.
+
+## 1NF (First Normal Form)
+
+- each column should contain single values
+- no multiple values in one column
+
+## 2NF (Second Normal Form)
+
+- must follow 1NF
+- all columns should depend on the full primary key
+
+## 3NF (Third Normal Form)
+
+- must follow 2NF
+- non-key columns should depend only on the primary key
+
+---
+
+# 7. What is Indexing?
+
+Indexing improves search speed in a database.
+
+Why use indexing?
+
+- faster data retrieval
+- improves query performance
+
+Example:
+
+```sql
+CREATE INDEX idx_email
+ON users(email);
+```
+
+---
+
+# 8. Difference Between WHERE and HAVING
+
+| WHERE                | HAVING               |
+| -------------------- | -------------------- |
+| filters rows         | filters grouped data |
+| used before GROUP BY | used after GROUP BY  |
+
+## WHERE Example
+
+```sql
+SELECT * FROM employees
+WHERE salary > 5000;
+```
+
+## HAVING Example
+
+```sql
+SELECT department, COUNT(*)
+FROM employees
+GROUP BY department
+HAVING COUNT(*) > 2;
+```
+
+---
+
+# 9. What is a Transaction in SQL?
+
+A transaction is a group of SQL operations treated as one unit.
+
+## COMMIT
+
+Saves changes permanently.
+
+```sql
+COMMIT;
+```
+
+## ROLLBACK
+
+Cancels changes.
+
+```sql
+ROLLBACK;
+```
+
+## Example
+
+```sql
+BEGIN;
+
+UPDATE employees
+SET salary = salary + 1000
+WHERE id = 1;
+
+ROLLBACK;
+```
+
+---
+
+# 10. Query to Find Second Highest Salary
+
+```sql
+SELECT salary
+FROM employees
+ORDER BY salary DESC
+LIMIT 1 OFFSET 1;
+```
+
 # Question-Answers on ERD
 
 ### What is the difference between Primary Key and Foreign Key?
