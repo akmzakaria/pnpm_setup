@@ -1,3 +1,7 @@
+# Multi-vendor ER Diagram (Daraz ERD)
+
+[Click to see](https://drive.google.com/file/d/180tDV0piPBqmP-eRLWikWgHjO9QSB9iU/view?usp=sharing)
+
 # Question-Answers on ERD
 
 ### What is the difference between Primary Key and Foreign Key?
