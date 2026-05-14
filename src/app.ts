@@ -2,6 +2,7 @@ import express, { Application, Request, Response, Router } from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import { AuthRoutes } from './app/modules/auth/auth.route.js'
+import globalErrorHandler from './app/middlewares/globalErrorHandler.js'
 
 const app: Application = express()
 
@@ -22,5 +23,7 @@ app.get('/', (req: Request, res: Response) => {
 })
 
 app.use('/api/v1', AuthRoutes)
+
+app.use(globalErrorHandler)
 
 export default app
