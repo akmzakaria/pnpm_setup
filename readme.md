@@ -1,4 +1,4 @@
-# Multi-vendor ER Diagram (Daraz ERD)
+# PRODUCT MANAGEMENT ER DIAGRAM (DARAZ)
 
 [Click to see](https://drive.google.com/file/d/180tDV0piPBqmP-eRLWikWgHjO9QSB9iU/view?usp=sharing)
 
