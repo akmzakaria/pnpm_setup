@@ -165,10 +165,12 @@ how to connect to it
 
 Example:
 
+```ts
 datasource db {
 provider = "postgresql"
 url = env("DATABASE_URL")
 }
+```
 
 ### generator
 
@@ -178,9 +180,11 @@ Prisma Client is the code you use to query the database.
 
 Example:
 
+```ts
 generator client {
 provider = "prisma-client-js"
 }
+```
 
 ### model
 
