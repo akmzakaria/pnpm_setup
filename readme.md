@@ -138,7 +138,10 @@ Returns user + all related posts
 
 Simple difference:
 select → choose columns
-include → bring related tables 5. Purpose of schema.prisma and its main sections
+include → bring related tables
+
+## 5. Purpose of schema.prisma and its main sections
+
 What it is:
 
 schema.prisma is the main configuration file of Prisma.
