@@ -41,6 +41,7 @@
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "http-status-codes": "^2.3.0",
     "nodemailer": "^8.0.7",
     "npx": "^10.2.2",
     "pg": "^8.20.0",
