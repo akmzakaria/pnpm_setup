@@ -2,6 +2,144 @@
 
 [Click to see](https://drive.google.com/file/d/180tDV0piPBqmP-eRLWikWgHjO9QSB9iU/view?usp=sharing)
 
+# LOGIN, REGISTER & VERIFYEMAIL API WITH BCRYPT & NODEMAILER
+
+## REGISTER
+
+![alt text](<Screenshot From 2026-05-17 11-33-14.png>)
+
+## VERIFY EMAIL
+
+![alt text](<Screenshot From 2026-05-17 11-35-08.png>)
+
+## LOGIN
+
+![alt text](<Screenshot From 2026-05-17 11-36-06.png>)
+
+# Question-Answers on Prisma ORM
+
+1. What is Prisma ORM and why is it used in backend development?
+
+Prisma ORM is a tool that helps you talk to a database using code instead of raw SQL.
+
+It works as a bridge between your backend (Node.js) and your database.
+
+Why it is used:
+Easier database queries (no complex SQL)
+Type-safe (helps catch errors early)
+Auto-completion in code editor
+Works well with TypeScript
+Cleaner and faster development 2. Difference between findUnique() and findFirst() in Prisma
+findUnique()
+Used when searching by a UNIQUE field
+Returns only one record or null
+
+Example:
+
+```ts
+prisma.user.findUnique({
+  where: {
+    email: "test@gmail.com",
+  },
+});
+```
+
+Email must be UNIQUE in database
+
+findFirst()
+Returns the first matching record
+Can use non-unique fields
+Useful when multiple results exist
+
+Example:
+
+```ts
+prisma.user.findFirst({
+  where: {
+    name: "John",
+  },
+});
+```
+
+Returns first "John" found
+
+Simple difference:
+findUnique → exact single unique record
+findFirst → first match from multiple records 3. What is Prisma Migration and why is prisma migrate dev used?
+Prisma Migration
+
+Migration means updating your database structure safely when your schema changes.
+
+Example:
+
+```bash
+adding a new table
+adding a new column
+changing a field type
+prisma migrate dev
+```
+
+This command is used in development to:
+
+```bash
+create migration files
+apply changes to database
+sync Prisma schema with database
+regenerate Prisma Client
+```
+
+Example:
+
+```bash
+npx prisma migrate dev --name add_user_table 4. Difference between select and include in Prisma
+```
+
+select
+
+Used to choose specific fields only
+
+Example:
+
+```bash
+prisma.user.findMany({
+select: {
+id: true,
+email: true
+  }
+})
+```
+
+Only returns id and email
+
+include
+
+Used to include related tables (relations)
+
+Example:
+
+```ts
+prisma.user.findMany({
+  include: {
+    posts: true,
+  },
+});
+```
+
+Returns user + all related posts
+
+Simple difference:
+select → choose columns
+include → bring related tables 5. Purpose of schema.prisma and its main sections
+What it is:
+
+schema.prisma is the main configuration file of Prisma.
+
+It defines:
+
+database connection
+data models (tables)
+generators (Prisma Client)
+
 # Question-Answers on SQL
 
 # 1. Difference Between DELETE, TRUNCATE, DROP
@@ -16,7 +154,8 @@
 
 ```sql
 DELETE FROM employees
-WHERE id = 1;
+WHERE
+  id = 1;
 ```
 
 ## TRUNCATE
@@ -73,7 +212,7 @@ A FOREIGN KEY connects two tables.
 Example:
 
 ```sql
-FOREIGN KEY (user_id) REFERENCES users(id)
+FOREIGN KEY (user_id) REFERENCES users (id)
 ```
 
 It connects:
@@ -93,10 +232,12 @@ JOIN combines data from multiple tables.
 Shows only matching rows.
 
 ```sql
-SELECT users.name, orders.amount
-FROM users
-INNER JOIN orders
-ON users.id = orders.user_id;
+SELECT
+  users.name,
+  orders.amount
+FROM
+  users
+  INNER JOIN orders ON users.id = orders.user_id;
 ```
 
 ## LEFT JOIN
@@ -104,10 +245,12 @@ ON users.id = orders.user_id;
 Shows all rows from the left table.
 
 ```sql
-SELECT users.name, orders.amount
-FROM users
-LEFT JOIN orders
-ON users.id = orders.user_id;
+SELECT
+  users.name,
+  orders.amount
+FROM
+  users
+  LEFT JOIN orders ON users.id = orders.user_id;
 ```
 
 ---
@@ -145,8 +288,7 @@ Why use indexing?
 Example:
 
 ```sql
-CREATE INDEX idx_email
-ON users(email);
+CREATE INDEX idx_email ON users (email);
 ```
 
 ---
@@ -161,17 +303,26 @@ ON users(email);
 ## WHERE Example
 
 ```sql
-SELECT * FROM employees
-WHERE salary > 5000;
+SELECT
+  *
+FROM
+  employees
+WHERE
+  salary > 5000;
 ```
 
 ## HAVING Example
 
 ```sql
-SELECT department, COUNT(*)
-FROM employees
-GROUP BY department
-HAVING COUNT(*) > 2;
+SELECT
+  department,
+  COUNT(*)
+FROM
+  employees
+GROUP BY
+  department
+HAVING
+  COUNT(*) > 2;
 ```
 
 ---
@@ -202,8 +353,10 @@ ROLLBACK;
 BEGIN;
 
 UPDATE employees
-SET salary = salary + 1000
-WHERE id = 1;
+SET
+  salary = salary + 1000
+WHERE
+  id = 1;
 
 ROLLBACK;
 ```
@@ -213,10 +366,16 @@ ROLLBACK;
 # 10. Query to Find Second Highest Salary
 
 ```sql
-SELECT salary
-FROM employees
-ORDER BY salary DESC
-LIMIT 1 OFFSET 1;
+SELECT
+  salary
+FROM
+  employees
+ORDER BY
+  salary DESC
+LIMIT
+  1
+OFFSET
+  1;
 ```
 
 # Question-Answers on ERD
