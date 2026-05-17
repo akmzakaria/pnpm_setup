@@ -6,15 +6,15 @@
 
 ## REGISTER API RESPONSE
 
-![alt text](postman-register-api)
+![alt text](<Screenshot From 2026-05-17 11-33-14-1.png>)
 
 ## VERIFY EMAIL API RESPONSE
 
-![alt text](postman-verify-email-api)
+![alt text](<Screenshot From 2026-05-17 11-35-08-1.png>)
 
 ## LOGIN API RESPONSE
 
-![alt text](postman-login-api)
+![alt text](<Screenshot From 2026-05-17 12-54-42-1.png>)
 
 # Question-Answers on Prisma ORM
 
