@@ -142,15 +142,63 @@ include → bring related tables
 
 ## 5. Purpose of schema.prisma and its main sections
 
-What it is:
+The schema.prisma file is the main configuration file in Prisma.
 
-schema.prisma is the main configuration file of Prisma.
+It defines how your database looks and how Prisma should connect and work with it.
 
-It defines:
+### Main purpose:
 
-database connection
-data models (tables)
-generators (Prisma Client)
+Define database connection
+Define tables (models)
+Configure Prisma Client
+Control how data is structured
+Main sections of schema.prisma
+
+### datasource
+
+This section defines the database connection.
+
+It tells Prisma:
+
+which database you are using
+how to connect to it
+
+Example:
+
+datasource db {
+provider = "postgresql"
+url = env("DATABASE_URL")
+}
+
+### generator
+
+This section defines how Prisma Client is generated.
+
+Prisma Client is the code you use to query the database.
+
+Example:
+
+generator client {
+provider = "prisma-client-js"
+}
+
+### model
+
+This is the most important part.
+
+It defines your database tables and columns.
+
+Each model becomes a table in the database.
+
+Example:
+
+```prisma
+model User {
+  id    Int    @id @default(autoincrement())
+  name  String
+  email String @unique
+}
+```
 
 # Question-Answers on SQL
 
