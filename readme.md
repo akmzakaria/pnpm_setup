@@ -4,17 +4,17 @@
 
 # LOGIN, REGISTER & VERIFYEMAIL API WITH BCRYPT & NODEMAILER
 
-## REGISTER
+## REGISTER API RESPONSE
 
-![alt text](<Screenshot From 2026-05-17 11-33-14.png>)
+![alt text](postman-register-api)
 
-## VERIFY EMAIL
+## VERIFY EMAIL API RESPONSE
 
-![alt text](<Screenshot From 2026-05-17 11-35-08.png>)
+![alt text](postman-verify-email-api)
 
-## LOGIN
+## LOGIN API RESPONSE
 
-![alt text](<Screenshot From 2026-05-17 11-36-06.png>)
+![alt text](postman-login-api)
 
 # Question-Answers on Prisma ORM
 
@@ -236,7 +236,7 @@ DROP TABLE employees;
 
 ---
 
-# 2. What is a PRIMARY KEY?
+## 2. What is a PRIMARY KEY?
 
 A PRIMARY KEY:
 
@@ -252,7 +252,7 @@ id SERIAL PRIMARY KEY
 
 ---
 
-# 3. Difference Between PRIMARY KEY and UNIQUE KEY
+## 3. Difference Between PRIMARY KEY and UNIQUE KEY
 
 | PRIMARY KEY              | UNIQUE KEY            |
 | ------------------------ | --------------------- |
@@ -269,7 +269,7 @@ email VARCHAR(50) UNIQUE
 
 ---
 
-# 4. What is a FOREIGN KEY?
+## 4. What is a FOREIGN KEY?
 
 A FOREIGN KEY connects two tables.
 
@@ -287,11 +287,11 @@ It connects:
 
 ---
 
-# 5. What is JOIN in SQL?
+## 5. What is JOIN in SQL?
 
 JOIN combines data from multiple tables.
 
-## INNER JOIN
+### INNER JOIN
 
 Shows only matching rows.
 
@@ -304,7 +304,7 @@ FROM
   INNER JOIN orders ON users.id = orders.user_id;
 ```
 
-## LEFT JOIN
+### LEFT JOIN
 
 Shows all rows from the left table.
 
@@ -319,28 +319,28 @@ FROM
 
 ---
 
-# 6. What is Normalization?
+## 6. What is Normalization?
 
 Normalization organizes data to reduce duplication.
 
-## 1NF (First Normal Form)
+### 1NF (First Normal Form)
 
 - each column should contain single values
 - no multiple values in one column
 
-## 2NF (Second Normal Form)
+### 2NF (Second Normal Form)
 
 - must follow 1NF
 - all columns should depend on the full primary key
 
-## 3NF (Third Normal Form)
+### 3NF (Third Normal Form)
 
 - must follow 2NF
 - non-key columns should depend only on the primary key
 
 ---
 
-# 7. What is Indexing?
+## 7. What is Indexing?
 
 Indexing improves search speed in a database.
 
@@ -357,14 +357,14 @@ CREATE INDEX idx_email ON users (email);
 
 ---
 
-# 8. Difference Between WHERE and HAVING
+## 8. Difference Between WHERE and HAVING
 
 | WHERE                | HAVING               |
 | -------------------- | -------------------- |
 | filters rows         | filters grouped data |
 | used before GROUP BY | used after GROUP BY  |
 
-## WHERE Example
+### WHERE Example
 
 ```sql
 SELECT
@@ -375,7 +375,7 @@ WHERE
   salary > 5000;
 ```
 
-## HAVING Example
+### HAVING Example
 
 ```sql
 SELECT
@@ -391,11 +391,11 @@ HAVING
 
 ---
 
-# 9. What is a Transaction in SQL?
+## 9. What is a Transaction in SQL?
 
 A transaction is a group of SQL operations treated as one unit.
 
-## COMMIT
+### COMMIT
 
 Saves changes permanently.
 
@@ -403,7 +403,7 @@ Saves changes permanently.
 COMMIT;
 ```
 
-## ROLLBACK
+### ROLLBACK
 
 Cancels changes.
 
@@ -411,7 +411,7 @@ Cancels changes.
 ROLLBACK;
 ```
 
-## Example
+### Example
 
 ```sql
 BEGIN;
@@ -427,7 +427,7 @@ ROLLBACK;
 
 ---
 
-# 10. Query to Find Second Highest Salary
+## 10. Query to Find Second Highest Salary
 
 ```sql
 SELECT
