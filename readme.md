@@ -18,7 +18,7 @@
 
 # Question-Answers on Prisma ORM
 
-1. What is Prisma ORM and why is it used in backend development?
+## 1. What is Prisma ORM and why is it used in backend development?
 
 Prisma ORM is a tool that helps you talk to a database using code instead of raw SQL.
 
@@ -29,7 +29,10 @@ Easier database queries (no complex SQL)
 Type-safe (helps catch errors early)
 Auto-completion in code editor
 Works well with TypeScript
-Cleaner and faster development 2. Difference between findUnique() and findFirst() in Prisma
+Cleaner and faster development
+
+## 2. Difference between findUnique() and findFirst() in Prisma
+
 findUnique()
 Used when searching by a UNIQUE field
 Returns only one record or null
@@ -65,7 +68,10 @@ Returns first "John" found
 
 Simple difference:
 findUnique → exact single unique record
-findFirst → first match from multiple records 3. What is Prisma Migration and why is prisma migrate dev used?
+findFirst → first match from multiple records
+
+## 3. What is Prisma Migration and why is prisma migrate dev used?
+
 Prisma Migration
 
 Migration means updating your database structure safely when your schema changes.
@@ -91,8 +97,11 @@ regenerate Prisma Client
 Example:
 
 ```bash
-npx prisma migrate dev --name add_user_table 4. Difference between select and include in Prisma
+npx prisma migrate dev --name add_user_table
+
 ```
+
+## 4. Difference between select and include in Prisma?
 
 select
 
@@ -142,7 +151,7 @@ generators (Prisma Client)
 
 # Question-Answers on SQL
 
-# 1. Difference Between DELETE, TRUNCATE, DROP
+## 1. Difference Between DELETE, TRUNCATE, DROP
 
 | Command  | Description                        |
 | -------- | ---------------------------------- |
